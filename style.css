@@ -2,4 +2,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+main{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+nav>h2{
+    margin: 20px;
+}
+.movie{
+    margin: 20px ;
+    background-color: aquamarine;
+    height: max-content;
+    width: max-content;
+    padding: 20px;
+    border-radius: 5px;
 }
