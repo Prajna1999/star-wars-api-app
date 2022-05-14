@@ -1,5 +1,11 @@
 let movies=[];
 
+
+
+function buildList(){
+    document.querySelector("nav>h2").innerHTML=`${movies.length} star war movies are found.`
+}
+
 function init(){
     const options={
         method:"GET",
@@ -16,10 +22,11 @@ function init(){
                 return resp.json();
             }
         }).then((data)=>{
-            const movies=data.results;
-            console.log(movies);
+            movies=data.results;
+            buildList();
+            // console.log(movies)
         })
-        .catch((e)=>console.log(error));
+        .catch((e)=>console.log(e));
 }
 
 document.addEventListener("DOMContentLoaded", init);
