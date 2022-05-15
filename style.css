@@ -14,8 +14,8 @@ nav>h2{
 .movie{
     margin: 20px ;
     background-color: aquamarine;
-    height: max-content;
-    width: max-content;
+    min-height: max-content;
+    min-width: 200px;
     padding: 20px;
     border-radius: 5px;
 }
