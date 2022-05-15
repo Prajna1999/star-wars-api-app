@@ -5,7 +5,7 @@ let movies=[];
 
 
 function buildList(){
-    document.querySelector("nav>h2").innerHTML=`${Movie.count} star war movies are found.`
+    document.querySelector("nav>h2").innerHTML=`${Movie.getFullMovies()} star war movies are found.`
 
     const main=document.querySelector("main");
     main.innerHTML=movies.map((m)=>{

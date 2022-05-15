@@ -1,11 +1,12 @@
 class Movie{
     // public instance properties.
-    ref="";
-    date;
+    #ref="";//private
+    #date;//private
+    #characters;
     // static instance on top level.
-    static count=0;
+    static #count=0;
     static getFullMovies(){
-        return Movie.count;
+        return Movie.#count;
     }
     constructor(film){
         if(!film.title||!film.episode_id||!film.director||!film.release_date||!film.url||!film.characters){
@@ -16,21 +17,30 @@ class Movie{
         this.director=film.director;
         this.release_date=film.release_date;
         this.url=film.url;
-        this.characters=film.characters;
+        this.#characters=film.characters;
         // return this;
-        this.date=new Date(film.release_date);
+        this.#date=new Date(film.release_date);
         // static instance propoerty applies to the Movie class itself.
-        Movie.count++;
-        this.ref=(Math.random()*Movie.count).toString(16).substring(2,12);
+        Movie.#count++;
+        this.#ref=(Math.random()*Movie.#count).toString(16).substring(2,12);
       
+    }
+    get id(){
+        return this.#ref.toUpperCase();
+
+    }
+    // setters take an dependency
+    set id(val){
+        console.log("This cannot be changed",val);
+        return false;
     }
     getYear(){
         // return this.year.
-        return this.date.getFullYear(); 
+        return this.#date.getFullYear(); 
     }
     getChar(){
-        const idx=Math.floor(Math.random()*this.characters.length);
-        return this.characters[idx];
+        const idx=Math.floor(Math.random()*this.#characters.length);
+        return this.#characters[idx];
     }
  
 }
